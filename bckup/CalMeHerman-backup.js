@@ -176,7 +176,7 @@ module.exports = dha = async (dha, mek) => {
 		const from = mek.key.remoteJid
 		const type = Object.keys(mek.message)[0]        
         const cmd = (type === 'conversation' && mek.message.conversation) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text ? mek.message.extendedTextMessage.text : ''.slice(1).trim().split(/ +/).shift().toLowerCase()
-        const prefix = /☭/.test(cmd) ? cmd.match(/☭/gi) : '!'
+        const prefix = /~/.test(cmd) ? cmd.match(/~/gi) : '!'
         body = (type === 'conversation' && mek.message.conversation.startsWith(prefix)) ? mek.message.conversation : (type == 'imageMessage') && mek.message[type].caption.startsWith(prefix) ? mek.message[type].caption : (type == 'videoMessage') && mek.message[type].caption.startsWith(prefix) ? mek.message[type].caption : (type == 'extendedTextMessage') && mek.message[type].text.startsWith(prefix) ? mek.message[type].text : (type == 'listResponseMessage') && mek.message[type].singleSelectReply.selectedRowId ? mek.message[type].singleSelectReply.selectedRowId : (type == 'buttonsResponseMessage') && mek.message[type].selectedButtonId ? mek.message[type].selectedButtonId : (type == 'stickerMessage') && (getCmd(mek.message[type].fileSha256.toString('base64')) !== null && getCmd(mek.message[type].fileSha256.toString('base64')) !== undefined) ? getCmd(mek.message[type].fileSha256.toString('base64')) : ""
 		budy = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : ''
 		const command = body.slice(1).trim().split(/ +/).shift().toLowerCase()		
@@ -1844,6 +1844,7 @@ Java Server
 }
              break
       case 'ytmp3':
+            if (!isPremium) return reply(mess.only.premium)
             if (args.length < 1) return reply('Link Nya Mana?')
             if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
             teks = args.join(' ')
@@ -1867,6 +1868,7 @@ _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
 })
             break
      case 'ytmp4':
+            if (!isPremium) return reply(mess.only.premium)
             if (args.length < 1) return reply('Link Nya Mana?')
             if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
             teks = args.join(' ')
@@ -1891,6 +1893,7 @@ _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
             break
      case 'ytmp4hd':
      case 'ythd':
+            if (!isPremium) return reply(mess.only.premium)
             if (args.length === 0) return reply(`Kirim perintah */ytmp4 _linkYt_*`)
             let isLinkks2 = args[0].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
             if (!isLinkks2) return reply(mess.error.Iv)
@@ -2045,7 +2048,8 @@ case 'tiktok':
              ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/ssweb?apikey=${setting.lolkey}&url=${ini_link}`)
              await dha.sendMessage(from, ini_buffer, image, { quoted: mek })
              break
-       case 'nhentai':
+       case 'nhentaipdf':
+             if (!isPremium) return reply(mess.only.premium)
              if (args.length == 0) return reply(`Usage: ${prefix + command} query\nExample: ${prefix + command} 317986`)
              if (isNaN(Number(args[0]))) return await reply(mess.wrongFormat)
              try {
@@ -2064,7 +2068,8 @@ case 'tiktok':
              reply(String(e))
 }
              break
-       case 'nhentaiinfo':
+       case 'nhentai':
+              if (!isPremium) return reply(mess.only.premium)
               if (args.length == 0) return reply(`Example: ${prefix + command} 344253`)
               reply(mess.wait)
               henid = args[0]
@@ -4732,9 +4737,9 @@ reply('_' + err + '_\n\n' + js)
                   }
 
 
-		if (budy.includes(`Cheat Prefix`)) {
+		if (budy.includes(`Bot`)) {
 
-                  reply(`☭`)
+                  reply(`Bot On`)
 
                   }
 
@@ -4753,9 +4758,9 @@ dha.sendMessage(from, rell, MessageType.sticker, {quoted: mek})
                   }
 
 
-		if (budy.includes(`Cheat 882`)) {
+		if (budy.includes(`Ingfo`)) {
 
-                  reply(`Cheat Aktived`)
+                  reply(`Info : Bot On`)
 
                   }
 
@@ -4767,79 +4772,79 @@ dha.sendMessage(from, rell, MessageType.sticker, {quoted: mek})
                   }
 
 
-		if (budy.includes(`Cheat 8822`)) {
+		if (budy.includes(`P`)) {
 
-                  reply(`Cheat Aktived`)
-
-                  }
-
-
-		if (budy.includes(`88223`)) {
-
-                  reply(`You Found A Secred`)
+                  reply(`Pa pe pa pe, Salam gblk`)
 
                   }
 
 
-		if (budy.includes(`882233`)) {
+		if (budy.includes(`Kontol`)) {
 
-                  reply(`Dont Share This`)
-
-                  }
-
-
-		if (budy.includes(`8822334`)) {
-
-                  reply(`Bot Elit Global`)
+                  reply(`BOT : Jangan Toxic`)
 
                   }
 
 
-		if (budy.includes(`88223344`)) {
+		if (budy.includes(`Ngentod`)) {
 
-                  reply(`ERROR 404`)
-
-                  }
-
-
-		if (budy.includes(`882233445`)) {
-
-                  reply(`ERROR 400`)
+                  reply(`BOT : Jangan Toxic`)
 
                   }
 
 
-		if (budy.includes(`8822334455`)) {
+		if (budy.includes(`Kntl`)) {
 
-                  reply(`ERROR 500`)
-
-                  }
-
-
-		if (budy.includes(`88223344556`)) {
-
-                  reply(`Ngak tahu Mau Ngetik apa`)
+                  reply(`BOT : Jangan Toxic`)
 
                   }
 
 
-		if (budy.includes(`882233445566`)) {
+		if (budy.includes(`Memek`)) {
 
-                  reply(`Yabegitulah`)
-
-                  }
-
-
-		if (budy.includes(`8822334455667`)) {
-
-                  reply(`Dahlah Coi`)
+                  reply(`BOT : Jangan Toxic`)
 
                   }
 
 
-		if (budy.includes(`88223344556677`)) {
+		if (budy.includes(`memek`)) {
 
-                  reply(`Bib`)
+                  reply(`BOT : Jangan Toxic`)
+
+                  }
+
+
+		if (budy.includes(`jembut`)) {
+
+                  reply(`BOT : Jangan Toxic`)
+
+                  }
+
+
+		if (budy.includes(`kontol`)) {
+
+                  reply(`BOT Jangan Toxic`)
+
+                  }
+
+
+		if (budy.includes(`anj`)) {
+
+                  reply(`BOT : Jangan Toxic`)
+
+                  }
+
+
+		if (budy.includes(`Anjg`)) {
+
+                  reply(`BOT : Jangan Toxic`)
+
+                  }
+
+
+		if (budy.includes(`Bacot`)) {
+
+                  reply(`BOT : Harap Tenang Ini Ujian`)
 
                   }
 if (!isGroup && isCmd && !mek.key.fromMe){
