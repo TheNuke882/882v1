@@ -1,3 +1,5 @@
+//SEGEL CASE if (!issegel) return reply(`SEGEL CASE`)
+
 const {
     WAConnection,
 	MessageType,
@@ -85,8 +87,7 @@ petik = '```'
 fake = '©ArekN'//GANTI NAMA KAMU BEP
 ban =[]
 
-// Database
-let register = JSON.parse(fs.readFileSync('./database/user/register.json'))
+// Databaseis
 let welkom = JSON.parse(fs.readFileSync('./database/group/welcome.json'))
 let _premium = JSON.parse(fs.readFileSync('./database/user/premium.json'));
 let _afk = JSON.parse(fs.readFileSync('./database/user/afk.json'));
@@ -965,7 +966,7 @@ dha.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
                     rows: [
                        {
                         title: `${listmenuu[startnum++]}`,
-                        footerText: 'case by Herman Chanel', imageMessage: imageMsg,
+                        footerText: 'ArekN_BOT', imageMessage: imageMsg,
                         rowId: `${prefix}${x}`
                       }
                     ]
@@ -1989,7 +1990,6 @@ _*Tunggu Proses Upload Media......*_`
             .catch((err) => { reply(String(err)) })
              break
 case 'tiktok':
-              if (!isRegister) return reply(`You are not verified\n\nReply this chat and send bot password\n\nHint : \nPassword contains 4 digit number\nCheck password at: https://dha-chan02.github.io`)
               if (!q) return reply('Linknya?')
               if (!q.includes('tiktok')) return reply(mess.error.Iv)
               buttons = [{buttonId: `${prefix}tiktoknowm ${q}`,buttonText:{displayText: `🎥 Video`},type:1},{buttonId:`${prefix}ttaudio ${q}`,buttonText:{displayText:'🎵 Mp3'},type:1}]
@@ -2343,7 +2343,7 @@ case 'tiktok':
             
 v = await fetchJson(`https://api.waifu.pics/sfw/waifu`)
 inifile = sendMediaURL(from, v.url, )
-buttons = [{buttonId: `${prefix + command}`,buttonText:{displayText: `➡️Next`},type:1},{buttonId:`${prefix}Putpaybot`,buttonText:{displayText:'Putpay BOT'},type:1}]
+buttons = [{buttonId: `${prefix + command}`,buttonText:{displayText: `➡️Next`},type:1},{buttonId:`${prefix}info`,buttonText:{displayText:'ArekN_BOT'},type:1}]
               imageMsg = ( await dha.prepareMessage(from, inifile, 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
               buttonsMessage = {footerText:'Jangan Lupa Donasi Ya Kak ☕', imageMessage: imageMsg,
               contentText:`klik Next untuk ke gambar selanjut nya`,buttons,headerType:4}
@@ -2356,11 +2356,10 @@ break
        case 'milf':
        case 'cosplay':
        case 'wallml':
-              if (!isRegister) return reply(`You are not verified\n\nReply this chat and send bot password\n\nHint : \nPassword contains 4 digit number\nCheck password at: https://dha-chan02.github.io`)
               let wipu = (await axios.get(`https://raw.githubusercontent.com/Arya-was/endak-tau/main/${command}.json`)).data
               let wipi = wipu[Math.floor(Math.random() * (wipu.length))]
               fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(wipi))
-		      buttons = [{buttonId: `${prefix + command}`,buttonText:{displayText: `➡️Next`},type:1},{buttonId:`${prefix}Putpaybot`,buttonText:{displayText:'Putpay BOT'},type:1}]
+		      buttons = [{buttonId: `${prefix + command}`,buttonText:{displayText: `➡️Next`},type:1},{buttonId:`${prefix}info`,buttonText:{displayText:'ArekN_BOT'},type:1}]
               imageMsg = ( await dha.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
               buttonsMessage = {footerText:'Jangan Lupa Donasi Ya Kak ☕', imageMessage: imageMsg,
               contentText:`klik Next untuk ke gambar selanjut nya`,buttons,headerType:4}
@@ -3128,7 +3127,7 @@ break
               bokep = body.slice(1)
               const bo =['https://www.mediafire.com/download/8hnhjcf3pseubgy','https://www.mediafire.com/download/cty9phda3d1s62u','https://www.mediafire.com/download/8hnhjcf3pseubgy']
               const kep = bo[Math.floor(Math.random() * bo.length)]
-              dha.sendMessage(from, '*PERMINTAAN:* '+bokep+'\n*DOSA TANGGUNG PRIBADI*\n*NI BRO FREE BUAT KAMU DOWNLOAD SENDIRI:* '+ kep, text, { quoted: ftoko, caption: `NI BOKEP SAYA DAPAT DARI *©Putpay Botz* DOSA TANGGUNG SENDIRI🗿`})
+              dha.sendMessage(from, '*PERMINTAAN:* '+bokep+'\n*DOSA TANGGUNG PRIBADI*\n*NI BRO FREE BUAT KAMU DOWNLOAD SENDIRI:* '+ kep, text, { quoted: ftoko, caption: `NI BOKEP SAYA DAPAT DARI *©INTERNET* DOSA TANGGUNG SENDIRI`})
               break
                 case 'xnxx':
                     if (args.length == 0) return reply(`Contoh: ${prefix + command} https://www.xnxx.com/video-uy5a73b/mom_is_horny_-_brooklyn`)
@@ -3360,7 +3359,7 @@ break
               reply(`*Subcribe YT Owner :*\n https://youtube.com/channel/UCgNS1UqJjPhmViF6TMfE8Ag`)
               break
        case 'masukandata':
-             reply(`*「BOT MELAYANI」*\n\n━━━━━━━━━━━━━━━━━━━━\n\nMASUKKANA DATA BERIKUT\n*•NAMA GAME:*\n*•ID GAME:*\n*•USER NAME:*\n━━━━━━━━━━━━━━━━━━━━\n*NOTE:*\n*1.* _JANGAN LUPA BUKTI TRXNYA_\n*2.* _OTOMATIS PESANAN_\n_LANSUNG DI PROSES_\n*3.* _PESANAN ANDA DI PROSES_\n_OLEH_\n\n   *©Putpay Bot*\n\n_JIKA PESANAN ANDA LOW_\n_PROSES MOHON BERSABAR_\nwa.me/6285893228346`)
+             reply(`*SUDAH TIDAK MELAYANI*`)
               break
       case 'ping':
       case 'speed':
@@ -3690,7 +3689,7 @@ case 'linkgc':
 }
              break
       case 'promote':
-             reply('🗿')
+             reply('ok')
              if (!isGroupAdmins) return reply(mess.only.admin)
              if (mek.message.extendedTextMessage === null || mek.message.extendedTextMessage === undefined) return;
              if (mek.message.extendedTextMessage.contextInfo.participant === undefined) {
@@ -3710,7 +3709,7 @@ case 'linkgc':
 }
              break
       case 'demote':
-             reply('🗿')
+             reply('ok')
              if (!isGroupAdmins) return reply(mess.only.admin)
              if (mek.message.extendedTextMessage === null || mek.message.extendedTextMessage === undefined) return;
              if (mek.message.extendedTextMessage.contextInfo.participant === undefined) {
@@ -4112,7 +4111,7 @@ case 'linkgc':
         case 'info':
         case 'infobot':  // Jangan Di Ubah Plise
                gopeynya = 'https://i.ibb.co/YQwrfvq/lolis.jpg'
-               thankslort = `*[━━━━ INFO BOT ━━━━]*\n*➤ Nama : Hêrmåñ ßð†z*\n*➤ Pukul : ${moment().utcOffset('+0700').format('HH:mm')}*\n*➤ Tanggal : ${moment.tz('Asia/Jakarta').format('DD/MM')}*\n*➤ Tipe : Node Js*\n*➤ Version : 3.3*\n*[━━━━━━━━━━━━━━━━━━]*`
+               thankslort = `*[━━━━ INFO BOT ━━━━]*\n*➤ Nama : ArekNongkokerep*\n*➤ Pukul : ${moment().utcOffset('+0700').format('HH:mm')}*\n*➤ Tanggal : ${moment.tz('Asia/Jakarta').format('DD/MM')}*\n*➤ Tipe : Node Js*\n*➤ Version : 3.3*\n*[━━━━━━━━━━━━━━━━━━]*`
              dha.sendMessage(from, await getBuffer(gopeynya), image, {quoted: ftoko, caption: thankslort })
              break
       case 'get':
@@ -4428,10 +4427,10 @@ case 'quotesdilan':
 					break                            
 //------------------< Menunya Bang:v >-------------------
       case 'dana':
-             reply(`DANA : 089514235883\n\n SAYA CUMAN BISA BILANG TERIMAKASIH ATAS KEMURAHAN HATI TUAN TELAH MEMBERIKAN KAMI BANTUAN.SEMOGA ALLAH MEMBALAS APA YG TUAN BERIKAN KE PADA SAYA`)
+             reply(`DANA : 089514235883\n\n`)
              break
              case 'y':
-             reply(`JANGAN MELANGGAR YA ANJG🗿`)
+             reply(`JANGAN MELANGGAR YA ANJG`)
              break
              case 't':
              reply(`BISMILAH BACA YASIN BUAT YANG MENINGGAL EH BUAT YANG KELUAR MAKSUDNYA 🤭`)
@@ -4443,7 +4442,7 @@ case 'quotesdilan':
              reply(` اتَّقوا النَّارَ ولو بشقِّ تمرةٍ ، فمن لم يجِدْ فبكلمةٍ طيِّبةٍ\n*“Jauhilah api neraka, walau hanya dengan bersedekah sebiji kurma (sedikit). Jika kamu tidak punya, maka bisa dengan kalimat thayyibah”* [HR. Bukhari 6539, Muslim 1016\n\n*Pulsa :* 089514235883\n𝑀𝑎𝑘𝑎𝑠𝑖ℎ 𝑌𝑎 𝑌𝑔 𝑆𝑢𝑑𝑎ℎ 𝐷𝑜𝑛𝑎𝑠𝑖.`)
              break              
       case 'infoig':
-             reply(`Follow Instagram Owner Ya : https://www.instagram.com/putpayy.id/`)
+             reply(`Follow Instagram Owner Ya : https://www.instagram.com`)
              break
       case 'grupbot':
              reply('chat.whatsapp.com/K6Px9ukcxzp9lI0MIXe4To')
@@ -4685,7 +4684,7 @@ ttt.includes('5️⃣') && !
 ttt.includes('6️⃣') && ! ttt.includes('7️⃣') && ! ttt.includes('8️⃣') && ! ttt.includes('9️⃣')){
 ucapan1 = `*🎳Result Game Tictactoe 🎲*
 
-*_Permainan Seri🗿👌*`
+*_Permainan Seri👌*`
 ucapan2 = `*🎳 Result Game Tictactoe 🎲*
 
 *Hasil Akhir:*

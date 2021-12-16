@@ -16,17 +16,17 @@ nocache('../message/group.js', module => console.log(color('[WATCH]', 'yellow'),
 
 const starts = async (dha = new WAConnection()) => {
 	dha.logger.level = 'warn'
-	console.log(color(figlet.textSync('herman', {
+	console.log(color(figlet.textSync('ArekN', {
 		font: 'Standard',
 		horizontalLayout: 'default',
 		vertivalLayout: 'default',
 		width: 80,
 		whitespaceBreak: false
 	}), 'cyan'))
-	console.log(color('[ GO 2K SUBSCRIBE ]\n', 'yellow'), color('Subscribe Bro Kenz Chanel', 'yellow'))
-	console.log(color('GA SUBSCRIBE BAKAL EROR:V', 'pink'))
-	console.log(color('\n\n[ FOLOW IG @putpayy.id', 'red'))
-	dha.browserDescription = ["herman", "Chrome", "3.0.0"];
+	console.log(color('[ ArekNongkokerep ]\n', 'yellow'), color('BOT', 'yellow'))
+	console.log(color('ERROR = API NYA GAK DI BAYAR', 'pink'))
+	console.log(color('\n\n[ LoliHunterID ]', 'red'))
+	dha.browserDescription = ["ArekN882", "Chrome", "3.0.0"];
 
 	// Menunggu QR
 	dha.on('qr', () => {
@@ -36,7 +36,7 @@ const starts = async (dha = new WAConnection()) => {
 	// Menghubungkan
 	fs.existsSync(`./${setting.sessionName}.json`) && dha.loadAuthInfo(`./${setting.sessionName}.json`)
 	dha.on('connecting', () => {
-		console.log(color('[ Bro Kenz Chanel ]', 'yellow'), color('PROSES NYAMBUNG...'));
+		console.log(color('[ ArekNongkokerep ]', 'yellow'), color('PROSES NYAMBUNG...'));
 	})
 const spinner = { 
   "interval": 120,
@@ -89,7 +89,7 @@ const spinner = {
 
 	//connect
 	dha.on('open', () => {
-		console.log(color('[ Bro kenz Chanel ]', 'yellow'), color('BOT SUDAH AKTIF'));
+		console.log(color('[ ArekNongkokerep ]', 'yellow'), color('BOT SUDAH AKTIF'));
 	})
 
 	// session
