@@ -822,7 +822,6 @@ function banChat() {
 }
               break
       case 'ytmp3':
-      if (!isOwner && !isPremium) return
             if (args.length < 1) return reply('Link Nya Mana?')
             if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
             teks = args.join(' ')
@@ -846,7 +845,6 @@ _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
 })
             break
      case 'ytmp4':
-     if (!isOwner && !isPremium) return
             if (args.length < 1) return reply('Link Nya Mana?')
             if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
             teks = args.join(' ')
@@ -871,7 +869,6 @@ _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
             break
      case 'ytmp4hd':
      case 'ythd':
-     if (!isOwner && !isPremium) return
             if (args.length === 0) return reply(`Kirim perintah */ytmp4 _linkYt_*`)
             let isLinkks2 = args[0].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
             if (!isLinkks2) return reply(mess.error.Iv)
@@ -921,7 +918,6 @@ _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
        case 'milf':
        case 'cosplay':
        case 'wallml':
-       if (!isOwner && !isPremium) return
               let wipu = (await axios.get(`https://raw.githubusercontent.com/Arya-was/endak-tau/main/${command}.json`)).data
               let wipi = wipu[Math.floor(Math.random() * (wipu.length))]
               fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(wipi))
@@ -935,7 +931,6 @@ _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
               break
         case 'playy':
 case 'lagu':
-if (!isOwner && !isPremium) return
 if (args.length < 1) return reply('Apa Yang Mau Dicari?')
 teks = args.join(' ')
 reply(mess.wait)
@@ -986,7 +981,6 @@ sendFileFromUrl(res[0].link, document, {quoted: mek, mimetype: 'audio/mp3', file
 }
 break
 case 'play2':   
-if (!isOwner && !isPremium) return
 				  if (args.length < 1) return reply('*Masukan judul nya?*')
                 reply('Loading.... ')
 				play = args.join(" ")
@@ -1003,7 +997,6 @@ Source : ${anu.result.source}
 				dha.sendMessage(from, buffer1, video, {mimetype: 'video/mp4', filename: `${anu.result.video}.mp4`, quoted:freply, caption: 'Nih Gan'})
 					break  
 				case 'play':
-                if (!isOwner && !isPremium) return
               if (!q) return reply('Linknya?')
               buttons = [{buttonId: `${prefix}play2 ${q}`,buttonText:{displayText: `🎥 Video`},type:1},{buttonId:`${prefix}playy ${q}`,buttonText:{displayText:'🎵 Mp3'},type:1}]
               imageMsg = (await dha.prepareMessageMedia(fs.readFileSync(`./media/ganteng.jpg`), 'imageMessage', {thumbnail: fs.readFileSync(`./media/ganteng.jpg`)})).imageMessage
@@ -1014,7 +1007,6 @@ Source : ${anu.result.source}
               break        
         case 'nulis':
         case 'tulis':
-        if (!isOwner && !isPremium) return
                if (args.length < 1) return reply('Yang mau di tulis apaan?')
                teks = args.join(' ')
                reply(mess.wait)
@@ -1032,7 +1024,6 @@ Source : ${anu.result.source}
 			case 'stickergif':  
 				case 'sticker':
 				  case 'stiker':
-                  if (!isOwner && !isPremium) return
 					     if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
             const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
             const media = await dha.downloadAndSaveMediaMessage(encmedia)
@@ -1087,7 +1078,6 @@ Source : ${anu.result.source}
             break    
 
       case 'toimg':
-      if (!isOwner && !isPremium) return
               if (!isQuotedSticker) return reply('reply stickernya')
               reply(mess.wait)
               encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
@@ -1102,7 +1092,6 @@ Source : ${anu.result.source}
 })
               break
         case 'togif':
-        if (!isOwner && !isPremium) return
                if ((isMedia && !mek.message.videoMessage || isQuotedSticker) && args.length == 0) {
                reply(mess.wait)
                encmediaaa = isQuotedSticker ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
@@ -1116,7 +1105,6 @@ Source : ${anu.result.source}
 }
                break
         case 'tovideo':
-        if (!isOwner && !isPremium) return
                if ((isMedia && !mek.message.videoMessage || isQuotedSticker) && args.length == 0) {
                reply(mess.wait)
                encmediaaa = isQuotedSticker ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
@@ -1132,12 +1120,10 @@ Source : ${anu.result.source}
 
 
       case 'runtime':
-      if (!isOwner && !isPremium) return
               textImg(`${runtime(process.uptime())}`)
               break
       case 'ping':
       case 'speed':
-      if (!isOwner && !isPremium) return
               timestampe = speed();
               latensie = speed() - timestampe
               reply(`「 *SPEED HACK* 」\nMerespon dalam ${latensie.toFixed(4)} Sec 💬`)
@@ -1252,7 +1238,7 @@ dha.sendMessage(_.jid,
 					reply(`Nomor wa.me/${bnnd} telah di unban!`)
 					break
         case 'h':
-        if (!isOwner && !isPremium) return
+        case 'hapus':
                try {
                if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Reply chat bot')
                dha.deleteMessage(from, {id: mek.message.extendedTextMessage.contextInfo.stanzaId, remoteJid: from, fromMe: true})
